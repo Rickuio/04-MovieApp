@@ -3,13 +3,21 @@ import { PopularResponse } from "../../../infraestructure/interfaces/movie-db.re
 import { MovieMapper } from "../../../infraestructure/mappers/movie.mapper";
 import { Movie } from "../../entities/movie.entity";
 
+interface Options {
+    page?: number;
+    limit?: number;
+}
 
-export const moviesPopularUseCase = async ( fetcher: HttpAdapter ): Promise< Movie[] > => {
 
+export const moviesPopularUseCase = async ( fetcher: HttpAdapter, options?: Options ): Promise< Movie[] > => {
 
     try {
         
-        const popular = await fetcher.get<PopularResponse>('/popular');
+        const popular = await fetcher.get<PopularResponse>('/popular', {
+            params: {
+                page: options?.page ?? 1
+            }
+        });
         //console.log({upcoming});
         return popular.results.map( result => MovieMapper.fromMovieDBResultToEntity(result));
     
