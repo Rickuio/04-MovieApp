@@ -12,7 +12,7 @@ interface Options {
 export const moviesPopularUseCase = async ( fetcher: HttpAdapter, options?: Options ): Promise< Movie[] > => {
 
     try {
-        
+        console.log({page: options?.page ?? 1});
         const popular = await fetcher.get<PopularResponse>('/popular', {
             params: {
                 page: options?.page ?? 1

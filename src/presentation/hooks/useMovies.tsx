@@ -50,7 +50,12 @@ export const useMovies = () => {
 
     }
 
-    return { isLoading, nowPlaying, popular, topRated, upcoming, 
+    return { 
+      isLoading, 
+      nowPlaying, 
+      popular, 
+      topRated, 
+      upcoming, 
       //Methods
       popularNextPage: async() => {
         popularPageNumber++;
