@@ -44,7 +44,7 @@ export const useMovies = () => {
 
          setisLoading(false);
          
-         console.log('\n Total: ' + upcomingTotal);
+         console.log('\n Total movies: ' + upcomingTotal);
          //console.log({ nowPlayingMovies, popularMovies, topRatedMovies, upcomingMovies });
          //console.log({popularMovies});
 
