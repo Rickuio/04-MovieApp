@@ -10,7 +10,7 @@ export const getMovieByIdUseCase = async (
 ): Promise<FullMovie>  => {
     try {
         const movie = await fetcher.get<MovieDBMovie>(`/${ movieId }`);
-        console.log(movie);
+        //console.log(movie); imprime detalle de la pelicula
         const fullMovie = MovieMapper.fromMovieDBToEntity(movie);
         return fullMovie;
     } catch (error) {
